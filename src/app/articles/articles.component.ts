@@ -25,4 +25,13 @@ export class ArticlesComponent implements OnInit {
     );
   }
 
+  delete(article: Article) {
+    console.log("deleteArticle" + article.id)
+    
+    return this.articleService.deleteArticle(article.id).subscribe(
+      () => {
+        console.log("article deleted")
+      }
+    );
+  }
 }
