@@ -17,6 +17,10 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.refreshArticles();
+  }
+
+  refreshArticles() {
     this.articleService.getArticles().subscribe(
       (articles) => {
         this.articles = articles
@@ -27,11 +31,11 @@ export class ArticlesComponent implements OnInit {
 
   delete(article: Article) {
     console.log("deleteArticle" + article.id)
-    
-    return this.articleService.deleteArticle(article.id).subscribe(
+    this.articleService.deleteArticle(article.id).subscribe(
       () => {
         console.log("article deleted")
       }
     );
+    this.refreshArticles();
   }
 }

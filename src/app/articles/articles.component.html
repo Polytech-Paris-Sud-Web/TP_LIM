@@ -1,2 +1,4 @@
 <p>articles works!</p>
-<app-article *ngFor="let article of this.articles" (deletedArticle)="delete($event)" [article]="article"></app-article>
+<div *ngIf="this.articles">
+    <app-article *ngFor="let article of this.articles" (deletedArticle)="delete($event)" [article]="article"></app-article>
+</div>

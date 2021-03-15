@@ -16,4 +16,8 @@ export class ArticleService {
     const url = "http://localhost:3000/articles/"+ id
     return this.http.delete(url);
   }
+  public addArticle(article: Article): Observable<Article> {
+    const url = "http://localhost:3000/articles/";
+    return this.http.post<Article>(url, article);
+  }
 }
