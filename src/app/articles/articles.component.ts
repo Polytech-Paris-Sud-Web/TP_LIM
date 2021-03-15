@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticle } from '../article/article';
+import { ArticleService } from "../article.service";
+import { Article } from "../article/article";
+import {Observable} from "rxjs/Observable";
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-articles',
@@ -7,11 +10,19 @@ import { IArticle } from '../article/article';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
-  articles: IArticle[] = [{ title: 'My First Article', author:'Tony', content: 'Hello World' },
-  { title: 'Second Article', author:'Tony', content: 'Second content' },
-  { title: 'Third Article', author:'Personne', content: 'Third content' }]
-  constructor() { }
 
-  ngOnInit(): void { }
+  public articles: Article[] = [];
+
+  constructor(private articleService: ArticleService) {
+  }
+
+  ngOnInit() {
+    this.articleService.getArticles().subscribe(
+      (articles) => {
+        this.articles = articles
+        console.log(articles);
+      }
+    );
+  }
 
 }

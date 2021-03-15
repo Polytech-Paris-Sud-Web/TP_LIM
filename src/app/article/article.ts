@@ -1,5 +1,6 @@
-export interface IArticle {
+export interface Article {
+  id: number;
   title: string;
-  author: string;
+  authors: string;
   content: string;
 }

@@ -1,4 +1,7 @@
 <div class="success">
-    <h3 id="title"> {{this.title}} written by {{this.author}} </h3>
-    <p> {{this.content}} </p>
+    <div *ngIf="article">
+        <h3 id="title"> #{{article.id}} - {{article.title}} written by {{article.authors}} </h3>
+        <p> {{article.content}} </p>
+        <button class="warning" (click)="deleteArticle(article.id)">DELETE</button>
+    </div>
 </div>
