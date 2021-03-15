@@ -12,7 +12,6 @@ export class ArticlesComponent implements OnInit {
   { title: 'Third Article', author:'Personne', content: 'Third content' }]
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
