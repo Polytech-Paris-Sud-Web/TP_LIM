@@ -1,0 +1,4 @@
+<p>articles works!</p>
+<div *ngFor="let article of articles">
+    <app-article [title]="this.article.title" [author]="this.article.author" [customContent]="this.article.content"></app-article>
+</div>
